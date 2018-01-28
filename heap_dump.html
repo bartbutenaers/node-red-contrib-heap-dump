@@ -1,0 +1,55 @@
+<!--
+  Copyright 2018, Bart Butenaers
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<script type="text/javascript">
+    RED.nodes.registerType('heap-dump',{
+        category: 'memory',
+        color: '#E198EA',
+        defaults: {
+            directory: {value:""},
+            createDir: {value:false},
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "dump.png",
+        label: function() {
+            return this.name||"heap dump";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="heap-dump">
+    <div class="form-row">
+         <label for="node-input-directory"><i class="fa fa-file"></i> Directory</label>
+         <input id="node-input-directory" type="text">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-createDir" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-createDir" style="width: 70%;"> Create directory if not exists?</label>
+    </div>
+    </br>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name"> 
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="heap-dump">
+    <p>A node to create a dump of the V8 heap memory (for later inspection).</p>
+    <p><strong>Directory:</strong><br/>
+    The directory where the heap dump file will be created.  The file name will be added automatically: <code>timestamp.heapsnapshot</code>.
+    When this property isn't specified in the node config screen, it can be specified in each input message (in the <code>msg.directory</code> field).</p>
+    <p><strong>Create directory if not exists:</strong><br/>
+    When this option is enabled, the directory will be created automatically if it doesn't exists yet.</p>
+</script>
