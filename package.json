@@ -1,17 +1,22 @@
 {
-    "name"         : "node-red-contrib-heap-dump",
-    "version"      : "0.0.1",
-    "description"  : "A Node Red node to create a heap dump file",
+    "name": "node-red-contrib-heap-dump",
+    "version": "0.0.1",
+    "description": "A Node Red node to create a heap dump file",
     "dependencies": {
-       "fs-extra": "5.0.0",
-       "path": "0.12.7",
-       "heapdump": "0.3.9"
+        "fs-extra": "5.0.0",
+        "heapdump": "^0.3.15",
+        "path": "0.12.7"
     },
     "author": {
         "name": "Bart Butenaers"
     },
     "license": "Apache-2.0",
-    "keywords": [ "node-red", "heap", "dump", "memory" ],
+    "keywords": [
+        "node-red",
+        "heap",
+        "dump",
+        "memory"
+    ],
     "bugs": {
         "url": "https://github.com/bartbutenaers/node-red-contrib-heap-dump/issues"
     },
@@ -20,7 +25,7 @@
         "type": "git",
         "url": "https://github.com/bartbutenaers/node-red-contrib-heap-dump.git"
     },
-    "node-red"     : {
+    "node-red": {
         "nodes": {
             "heap-dump": "heap_dump.js"
         }
